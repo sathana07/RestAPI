@@ -3,7 +3,7 @@ package com.example.demo.controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Fruits;
-
+import com.example.demo.model.FruitsRequest;
 import com.example.demo.model.FruitsResponse;
 
 import com.example.demo.model.MultipleFruitsResponse;
@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-
 
 @RestController
 public class FruitsController {
@@ -43,6 +42,16 @@ public class FruitsController {
 		return objFruitsResponse;
 	}
 
+	@PostMapping("/v1/multiplefruits")
+	public MultipleFruitsResponse multipleFruits(@Valid @RequestBody FruitsRequest fruitsrequest) {
+
+		MultipleFruitsResponse objMultipleFruitsResponse;
+		objMultipleFruitsResponse = objMultipleFruitsService.handleMultipleFruitsvalidation(fruitsrequest);
+
+		return objMultipleFruitsResponse;
+
+	}
+
 	@GetMapping("/v1/multiplefruits1")
 	public MultipleFruitsResponse multipleFruits() {
 
@@ -52,22 +61,17 @@ public class FruitsController {
 		return objMultipleFruitsResponse;
 
 	}
-	
-	
-	
-@GetMapping("/v1/multiplefruits")
-public MultipleFruitsResponse getSingleFruits(@RequestParam String strname) {
-	MultipleFruitsResponse objMultipleFruitsResponse;
-	if(strname!=null)
-	{
-	objMultipleFruitsResponse=objMultipleFruitsService.getSingleFruits(strname);
-	}
-	else 
-	{
-		objMultipleFruitsResponse=objMultipleFruitsService.getMultipleFruits();
-	}
-	return objMultipleFruitsResponse;
 
-}
+	@GetMapping("/v1/multiplefruits")
+	public MultipleFruitsResponse getSingleFruits(@Valid @RequestParam String strname) {
+		MultipleFruitsResponse objMultipleFruitsResponse;
+		if (strname != null) {
+			objMultipleFruitsResponse = objMultipleFruitsService.getSingleFruits(strname);
+		} else {
+			objMultipleFruitsResponse = objMultipleFruitsService.getMultipleFruits();
+		}
+		return objMultipleFruitsResponse;
+
+	}
 
 }

@@ -92,6 +92,7 @@ public class MultipleFruitsService {
 		objFruitsResponse.setWeight(2.1);
 		objFruitsResponse.setDateofpurchase(LocalDate.now());
 		objFruitsResponse.setValid(true);
+		System.out.println("valid fruit");
 		lstFruitsResponses.add(objFruitsResponse);
 
 		FruitsResponse objFruitsResponse1 = new FruitsResponse();
@@ -101,6 +102,7 @@ public class MultipleFruitsService {
 		objFruitsResponse1.setWeight(2.1);
 		objFruitsResponse1.setDateofpurchase(LocalDate.now());
 		objFruitsResponse.setValid(false);
+		System.out.println("invalid fruit");
 		lstFruitsResponses.add(objFruitsResponse1);
 		return lstFruitsResponses;
 	}
@@ -118,6 +120,7 @@ public class MultipleFruitsService {
 	    objFruitsResponse2.setWeight(2.1);
 	    objFruitsResponse2.setDateofpurchase(LocalDate.now());
 	    objFruitsResponse2.setValid(true);
+		System.out.println("valid fruit");
 	    lstFruitsResponses.add(objFruitsResponse2);
 
 	    FruitsResponse objFruitsResponse3 = new FruitsResponse();
@@ -127,6 +130,7 @@ public class MultipleFruitsService {
 	    objFruitsResponse3.setWeight(5.0);
 	    objFruitsResponse3.setDateofpurchase(LocalDate.now());
 	    objFruitsResponse3.setValid(false);
+		System.out.println("invalid fruit");
 	    lstFruitsResponses.add(objFruitsResponse3);
 
 	    List<FruitsResponse> newFruitsResponses = new ArrayList<FruitsResponse>();
